@@ -1,0 +1,69 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "remote_phone_control"
+version = "0.1.0"
+authors = [
+  { name="p4irin", email="139928764+p4irin@users.noreply.github.com" },
+]
+description = "Remote control a SIP hardphone"
+readme = "README.md"
+license = {file = "LICENSE"}
+requires-python = ">=3.8.10"
+keywords = ["sip", "hardphone", "snom", "yealink", "automation", "test"]
+dependencies = [
+  "requests >= 2.31.0",
+]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Operating System :: POSIX :: Linux",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Telecommunications Industry",
+    "Topic :: Communications :: Internet Phone",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Software Development :: Quality Assurance",
+    "Topic :: Software Development :: Testing",
+    "License :: OSI Approved :: MIT License",
+]
+
+[project.optional-dependencies]
+dev = [
+  "build == 0.10.0",
+  "twine >= 4.0.2",
+  "bumpver >= 2023.1126",
+]
+test = [
+  "python-dotenv[cli] >= 1.0.0",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/p4irin/remote_phone_control"
+"Bug Tracker" = "https://github.com/p4irin/remote_phone_control/issues"
+
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.bumpver]
+current_version = "0.1.0"
+version_pattern = "MAJOR.MINOR.PATCH"
+commit_message = "Bump version {old_version} -> {new_version}"
+commit = true
+tag = true
+push = false
+
+[tool.bumpver.file_patterns]
+"pyproject.toml" = [
+    'current_version = "{version}"', 'version = "{version}"',
+]
+"src/remote_phone_control/__init__.py" = ["^__version__ = '{version}'$"]
+"tests/__init__.py" = ["^__version__ = '{version}'$"]
+"README.md" = [
+    " - v{version}$",
+]
+
