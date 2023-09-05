@@ -144,7 +144,7 @@ The examples given are included in the _package_'s source as unit tests, in the 
 
 #### Imports and _Snom_ instances
 
-These imports and _Snom_ instantiations must preceed all the standalone examples.
+These imports and _Snom_ instantiations must precede all the standalone examples.
 
 ```python
 import time
